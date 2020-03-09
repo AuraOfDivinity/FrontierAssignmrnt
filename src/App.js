@@ -60,8 +60,9 @@ class App extends React.Component {
       }
     });
 
+    let randomItem = answers[Math.floor(Math.random() * answers.length)];
     this.setState({
-      answerContent: answers,
+      answerContent: randomItem,
       answerDisplayed: 'inline'
     });
   };
@@ -125,17 +126,10 @@ class App extends React.Component {
                 className='flex-fill box'
                 style={{ display: this.state.answerDisplayed }}
               >
-                {this.state.answerContent.map((current, index) => {
-                  return (
-                    <Button
-                      variant='success'
-                      key={index}
-                      style={{ margin: '10px' }}
-                    >
-                      {current}
-                    </Button>
-                  );
-                })}
+                <Button variant='success' style={{ margin: '10px' }}>
+                  {this.state.answerContent}
+                </Button>
+
                 <p>Refresh to select again!</p>
                 <Button
                   variant='danger'
