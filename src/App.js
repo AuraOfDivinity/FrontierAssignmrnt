@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   initiateData = data => {
-    this.setState({ initialData: Array.from(data) });
+    this.setState({ initialData: Array.from(data).slice(0, -1) });
     this.handleFilterOne();
   };
 
@@ -136,7 +136,14 @@ class App extends React.Component {
                     </Button>
                   );
                 })}
-                <p>Refresh to select again</p>
+                <p>Refresh to select again!</p>
+                <Button
+                  variant='danger'
+                  style={{ margin: '20px' }}
+                  onClick={() => window.location.reload()}
+                >
+                  Refresh
+                </Button>
               </div>
             </div>
           </div>
